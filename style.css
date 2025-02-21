@@ -88,7 +88,7 @@
     background-position: top center;
     z-index: 1;
 }
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 950px) {
     .banner .slider{
         width: 160px;
         height: 200px;
@@ -116,7 +116,7 @@
         padding: 0 30px;
     }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 650px) {
     .banner .slider{
         width: 100px;
         height: 150px;
