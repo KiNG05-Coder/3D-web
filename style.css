@@ -39,6 +39,29 @@
     height: 100%;
     object-fit: cover;
 }
+.banner .slider:hover {
+    animation-play-state: paused;
+}
+.banner .slider:hover .item {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease-in-out, transform 0.6s ease-in-out;
+}
+.banner .slider .item:hover {
+    filter: grayscale(0%);
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px) 
+        translateY(-50px);
+    transition: transform 0.6s ease-in-out, filter 0.3s ease-in-out;
+}
+.banner .slider .item:not(:hover) {
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px) 
+        translateY(0px);
+    transition: transform 0.6s ease-in-out;
+}
+
 .banner .content{
     position: absolute;
     bottom: 0;
