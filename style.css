@@ -33,6 +33,41 @@
     transform: 
         rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
         translateZ(550px);
+    margin: 0 auto;
+    padding: 0.2em;
+    width: auto;
+    background: #1c1f2b;
+    border-radius: 10px;  
+}
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.banner .slider .item::after,.banner .slider .item::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 0%, rgb(10, 81, 158),red, #f3c305c2, #25283B);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index:  -1;
+    padding: 2px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }to{
+        --angle: 360deg;
+    }
+}
+.banner .slider .item::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
 }
 .banner .slider .item img{
     width: 100%;
@@ -42,7 +77,7 @@
 .banner .slider:hover {
     animation-play-state: paused;
 }
-.banner .slider:hover .item {
+.banner .slider:hover .item{
     filter: grayscale(100%);
     transition: filter 0.5s ease-in-out, transform 0.6s ease-in-out;
 }
